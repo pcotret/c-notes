@@ -7,6 +7,7 @@ https://en.wikipedia.org/wiki/Data_structure_alignment
 Memory alignment of a given data is the way this data is organized in the memory.
 For instance, an array of `n` elements of type `T` is organized as a continuous array of `sizeof(T) * n` bytes. 
 As a consequence, an array `t` of `3`  `uint8_t` elements is organized as:
+
 ![https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/bytes.png?token=99a78a645f83fb3e0d47ee3f64a62d08ef856c76](https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/bytes.png?token=99a78a645f83fb3e0d47ee3f64a62d08ef856c76)
 
 How does memory alignment work for variables of a structured type? Let's find out :)
@@ -31,21 +32,29 @@ printf("%lu %lu\n", sizeof(A), sizeof(B));
 ```
 displays `4 6`. `A` and `B` have diferrent size due to memory alignment...
 A variable of type `A` is organized as follows:
+
 ![https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_a.png?token=43c87414e7df4644be1b97fc282f56aeb6543b81](https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_a.png?token=43c87414e7df4644be1b97fc282f56aeb6543b81)
+
 A variable of type `B` is organized as follows:
+
 ![https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_b.png?token=3c9083448578a00891b9fd9dca52987c591a0d80](https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_b.png?token=3c9083448578a00891b9fd9dca52987c591a0d80)
+
 Grey bytes inserted for memory alignment are also known as  **completion bytes**.
 ## Completion bytes
 Completion bytes are inserted in order to make each field of a structured type beginning at an address multiple of its type. In our example,  we know that each field of  `uint8_t` (resp. `uint16_t`) must begin at an address multiple of `1` (resp. `2`). Memory alignment of  `b` is as follows:
+
 ![https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/completion_bytes.png?token=99076ecd9084a5c1556aa014fcaddae49e3bfdbd](https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/completion_bytes.png?token=99076ecd9084a5c1556aa014fcaddae49e3bfdbd)
+
 Last completion bytes are inserted in case we want to use arrays of `B` while respecting memory alignment.
 ## Manual access
 Let `a` a variable of type `A` initialized by:
 ```c
 A a = {0x10, 0x20, 0x30};
 ```
+
 The memory layout of this variable is:
 ![https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_a.png?token=43c87414e7df4644be1b97fc282f56aeb6543b81](https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_a.png?token=43c87414e7df4644be1b97fc282f56aeb6543b81)
+
 We can access fields of this structure as follows:
 ```c
 uint8_t x, y;
@@ -63,7 +72,9 @@ Let `b` a variable of type `B` initialized by:
 B b = {0x10, 0x20, 0x30};
 ```
 The memory layout of this variable is:
+
 ![https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_b.png?token=3c9083448578a00891b9fd9dca52987c591a0d80](https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_b.png?token=3c9083448578a00891b9fd9dca52987c591a0d80)
+
 We can access fields of this structure as follows:
 ```c
 uint8_t x, y;
