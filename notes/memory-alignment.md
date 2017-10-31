@@ -40,7 +40,7 @@ A variable of type `B` is organized as follows:
 
 ![https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_b.png?token=3c9083448578a00891b9fd9dca52987c591a0d80](https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_b.png?token=3c9083448578a00891b9fd9dca52987c591a0d80)
 
-Grey bytes inserted for memory alignment are also known as  **completion bytes**.
+Hashed bytes inserted for memory alignment are also known as  **completion bytes**.
 ## Completion bytes
 Completion bytes are inserted in order to make each field of a structured type beginning at an address multiple of its type. In our example,  we know that each field of  `uint8_t` (resp. `uint16_t`) must begin at an address multiple of `1` (resp. `2`). Memory alignment of  `b` is as follows:
 
