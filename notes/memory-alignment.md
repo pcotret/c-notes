@@ -1,4 +1,5 @@
 This note was inspired by a work of Samuele Giraudo (LIGM, [Université Paris-Est Marne-la-Vallée](http://www.univ-mlv.fr/))
+
 http://igm.univ-mlv.fr/~giraudo/Enseignements/
 
 ## Memory alignment
