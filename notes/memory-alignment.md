@@ -87,7 +87,7 @@ y = *((uint8_t *) p);  /* Equivalent a y = a.y; */
 p += 2;
 z = *((uint16_t *) p); /* Equivalent a z = a.z; */
 ```
-## `Wpadded` option
+## `-Wpadded` option
 The compiler flag `-Wpadded` gives a warning when a type needs completion bytes. For instance, with the structured type `B` defined by:
 ```c
 typedef struct {
