@@ -3,7 +3,6 @@ http://igm.univ-mlv.fr/~giraudo/Enseignements/
 
 ## Memory alignment
 https://en.wikipedia.org/wiki/Data_structure_alignment
-
 Memory alignment of a given data is the way this data is organized in the memory.
 For instance, an array of `n` elements of type `T` is organized as a continuous array of `sizeof(T) * n` bytes. 
 As a consequence, an array `t` of `3`  `uint8_t` elements is organized as:
