@@ -8,6 +8,7 @@ Memory alignment of a given data is the way this data is organized in the memory
 For instance, an array of `n` elements of type `T` is organized as a continuous array of `sizeof(T) * n` bytes. 
 As a consequence, an array `t` of `3`  `uint8_t` elements is organized as:
 ![https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/bytes.png?token=99a78a645f83fb3e0d47ee3f64a62d08ef856c76](https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/bytes.png?token=99a78a645f83fb3e0d47ee3f64a62d08ef856c76)
+
 How does memory alignment work for variables of a structured type? Let's find out :)
 ## Memory alignment within a structured type
 Let's consider the following declarations:
