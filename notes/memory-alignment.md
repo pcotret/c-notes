@@ -51,8 +51,8 @@ Let `a` a variable of type `A` initialized by:
 ```c
 A a = {0x10, 0x20, 0x30};
 ```
-
 The memory layout of this variable is:
+
 ![https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_a.png?token=43c87414e7df4644be1b97fc282f56aeb6543b81](https://bytebucket.org/pcotret/alignment-tutorial/raw/555b7d7d5fc6e2f8a9eed163fe387306214a18d1/structure_a.png?token=43c87414e7df4644be1b97fc282f56aeb6543b81)
 
 We can access fields of this structure as follows:
