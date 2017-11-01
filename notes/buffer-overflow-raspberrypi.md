@@ -77,7 +77,7 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 - No call to `dont_touch_this`. It means this is a dead code section. Why?
-- Oh, `strcpy`! We found a breach! This functions must not be used nowadays as it doesn't buffer length (https://security.web.cern.ch/security/recommendations/en/codetools/c.shtml). We should try a buffer overflow at this line.
+- Oh, `strcpy`! We found a breach! This functions must not be used nowadays as it doesn't check buffer length (https://security.web.cern.ch/security/recommendations/en/codetools/c.shtml). We should try a buffer overflow at this line.
 
 If we disassemble `dont_touch_this`, we can get the entry point of this function (address `0x0001049c`):
 ```assembly
