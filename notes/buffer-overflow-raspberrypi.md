@@ -148,7 +148,7 @@ Starting program: /home/pi/Documents/tutorial/prog2 ABCDABCD
 0x7efff538:     0x00000002      0x000104b8      0x76ffecf0      0x7efff5d0
 0x7efff548:     0xc9cf5894      0xc1d8ab90      0x000104f8      0x00000000
 ```
-- As expected, we find the `0x44434241` twice (corresponds to `ABCD`).  
+- As expected, we find the `0x44434241` twice (corresponds to `DCBA`).  
 
 ```assembly
 (gdb) continue
