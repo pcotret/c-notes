@@ -12,10 +12,6 @@ TODO
 TODO
 
 ```bash
-gcc prog2.c -o prog2 -g
-```
-
-```bash
 gdb prog2
 ```
 
