@@ -1,5 +1,5 @@
 # Buffer overflow on ARM architecture
-Full notes later :sweat_smile:
+To be completed :sweat_smile:
 
 ## Prerequisites
 -	A RaspberryPi and a distro. For this tutorial, I had an up-to-date Raspbian Stretch Lite with LXDE.
@@ -9,7 +9,7 @@ Full notes later :sweat_smile:
 TODO
 
 ## An example of buffer overflow
-TODO
+
 
 ```bash
 gdb prog2
