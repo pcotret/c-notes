@@ -97,7 +97,7 @@ Putting a breakpoint right after the `strcpy`:
 (gdb) break *0x000104e8
 Breakpoint 1 at 0x104e8: file prog2.c, line 14.
 ```
-Running the progrm with valid input and checking reisters and stack values:
+Running the program with valid input and checking registers and stack values:
 ```assembly
 (gdb) run AAAA
 Starting program: /home/pi/Documents/tutorial/prog2 AAAA
