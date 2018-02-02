@@ -1,5 +1,5 @@
 # Buffer overflow on ARM architecture
-To be completed :sweat_smile:
+:blush: **February 2, 2018. Note for myself. Add some notes about Return-Oriented-Programming and the role of the main Special Purpose REgisters (such as the Link Register).**
 
 ## Prerequisites
 -	A RaspberryPi and a distro. For this tutorial, I had an up-to-date Raspbian Stretch Lite with LXDE.
