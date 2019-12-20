@@ -5,18 +5,18 @@
 
 ## Topology creation
 Take two `c7200` routers and add them to the schematic by a "drag and drop".
-![p3](../../img/net1.png)
+![p3](../../../img/net1.png)
 
 We can see our two routers:
 
-![p4](../../img/net2.png)
+![p4](../../../img/net2.png)
 
 Use the **link** icon in order to... ...link them. In this case, we connect the **FastEthernet0/0** interfaces of the routers.
-![p5](../../img/net4.png)
+![p5](../../../img/net4.png)
 
 Below, the green **Start** button (marked #1) and the **Console** button (marked #2) have been selected.
 
-![p2](../../img/net5.png)
+![p2](../../../img/net5.png)
 
 Now, let's configure the routers. Reminder: GNS3 runs IOS images, it's like playing with a real router (commands are the same).
 
