@@ -1,5 +1,5 @@
 # tech-notes
-- [Embedded](./embedded)
-- [Hardware](./hardware)
-- [Misc](./misc)
-- [Networks](./networks)
+- [Embedded](./notes/embedded)
+- [Hardware](./notes/hardware)
+- [Misc](./notes/misc)
+- [Networks](./notes/networks)
