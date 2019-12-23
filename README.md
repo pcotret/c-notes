@@ -3,3 +3,4 @@
 - [Hardware](./notes/hardware)
 - [Misc](./notes/misc)
 - [Networks](./notes/networks)
+- [Workshops notes](./notes/workshops)
