@@ -1,4 +1,4 @@
-# Aircrack 101 - How to get the password of a WPA2 session captured in Wireshark
+# Aircrack 101 - How to get the password of a WEP/WPA2 session captured in Wireshark
 
 ## Prerequisites
 
