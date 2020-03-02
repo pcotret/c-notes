@@ -15,3 +15,6 @@ $ sudo ip link set eth0 address 10:65:30:ee:48:9a
 ```
 Now, iCEcube2 should work!
 ![lattice](../../img/lattice.png)
+
+## Shebang
+You may need to modify the shebang of binary scripts installed in `$INSTALL_DIR/synpbase/bin` (for instance, `#!/bin/sh` to `#!/bin/bash`).
