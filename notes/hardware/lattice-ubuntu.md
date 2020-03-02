@@ -94,3 +94,6 @@ This means that the device was disconnected *from the driver* (which is what we 
 ## Conclusion
 
 Now that the device is connected and ready-to-go, you should be able  to access the adapter from within Lattice Diamond or Lattice Programmer  (formerly called ispVM).
+
+![lattice](../../img/lattice.png)
+
