@@ -27,7 +27,7 @@ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \
 
 ### 1.2. Clone Yocto and recipes (rocko branch)
 ```bash
-git clone https://git.yoctoproject.org/poky
+git clone https://git.yoctoproject.org/git/poky
 cd poky
 git checkout -b rocko origin/rocko
 # Next clones must be done in the poky folder
