@@ -25,10 +25,11 @@ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \
      pylint3 xterm
 ```
 
-### 1.2. Clone Yocto and recipes (morty branch)
+### 1.2. Clone Yocto and recipes (rocko branch)
 ```bash
-git clone -b rocko https://git.yoctoproject.org/poky
+git clone https://git.yoctoproject.org/poky
 cd poky
+git checkout -b rocko origin/rocko
 # Next clones must be done in the poky folder
 git clone -b rocko https://github.com/Xilinx/meta-xilinx
 git clone -b rocko https://github.com/openembedded/meta-openembedded.git
