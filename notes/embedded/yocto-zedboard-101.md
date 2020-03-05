@@ -55,50 +55,68 @@ source oe-init-build-env
 ```bash
 bitbake core-image-minimal
 ```
-Once complete the images for the target machine will be available in the output directory `poky/build/tmp/deploy/images/`.
+Once complete the images for the target machine will be available in the output directory `poky/build/tmp/deploy/images/zedboard-zynq7`.
 
-## 2. Bootloader
+## 2. Creating the SD card
 
-### 2.1. Download repositories
+## Partitions
+
+Create two partitions on the SD card:
+
+- Partition #1 : 100 MB, fat16.
+- Partition #2 : remaining space, ext3.
+
+Copy the following files in partition #1:
+
 ```bash
-git clone https://github.com/Xilinx/u-boot-xlnx
-git clone https://github.com/Xilinx/linux-xlnx
-git clone https://github.com/Xilinx/device-tree-xlnx
+sudo cp boot.bin core-image-minimal-zedboard-zynq7-20200304204540.rootfs.cpio.gz.u-boot u-boot.img uEnv.txt uImage uImage-zynq-zed.dtb /mnt/partition1
 ```
 
-### 2.2. Use Vivado to create HW description file (hdf)
-Follow the tutorial on the following link to generate a `.hdf` file:  `http://zedboard.org/zh-hant/node/1454`
-It will generate an `.hdf` file in `zed_base\zed_base.sdk\design_1_wrapper.hdf`
+Extract the `core-image-minimal` archive in partition #2:
 
-### 2.3. FSBL creation
-(hint: it is assumed that `setting**.sh` has been sourced)
 ```bash
-hsi
-hsi% set hwdsgn [open_hw_design <your_hdf_file>]
-hsi% generate_app -hw $hwdsgn -os standalone -proc ps7_cortexa9_0 -app zynq_fsbl -compile -sw fsbl -dir <directory_for_new_app>
+cd /mnt/partition2
+sudo tar xvzf core-image-minimal-zedboard-zynq7.tar.gz 
 ```
 
-### 2.4. U-boot
-Based on: `http://www.wiki.xilinx.com/Build+U-Boot`.
-```bash
-cd u-boot-xlnx
-sudo apt-get install libssl-dev
-export CROSS_COMPILE=arm-xilinx-linux-gnueabi-
-make zynq_zed_config
-make
-cd tools
-export PATH=`pwd`:$PATH
+Now, everything should be OK!
+
 ```
+Poky (Yocto Project Reference Distro) 2.4.4 zedboard-zynq7 /dev/ttyPS0
 
-## SD card
+zedboard-zynq7 login: root
+root@zedboard-zynq7:~# cat /proc/cpuinfo 
+processor       : 0
+model name      : ARMv7 Processor rev 0 (v7l)
+BogoMIPS        : 666.66
+Features        : half thumb fastmult vfp edsp neon vfpv3 tls vfpd32 
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant     : 0x3
+CPU part        : 0xc09
+CPU revision    : 0
 
-TODO
+processor       : 1
+model name      : ARMv7 Processor rev 0 (v7l)
+BogoMIPS        : 666.66
+Features        : half thumb fastmult vfp edsp neon vfpv3 tls vfpd32 
+CPU implementer : 0x41
+CPU architecture: 7
+CPU variant     : 0x3
+CPU part        : 0xc09
+CPU revision    : 0
+
+Hardware        : Xilinx Zynq Platform
+Revision        : 0003
+Serial          : 0000000000000000
+root@zedboard-zynq7:~# df -h
+Filesystem                Size      Used Available Use% Mounted on
+/dev/root                14.5G     60.9M     13.7G   0% /
+devtmpfs                240.7M         0    240.7M   0% /dev
+tmpfs                   249.2M     72.0K    249.2M   0% /run
+tmpfs                   249.2M     40.0K    249.2M   0% /var/volatile
+```
 
 ## References
 
-- http://picozed.org/content/building-zedboard-images
-- https://github.com/Xilinx/meta-xilinx
-- http://www.wiki.xilinx.com/Prepare+Boot+Image
-- http://wiki.elphel.com/index.php?title=Yocto_tests
-- http://git.yoctoproject.org/cgit/cgit.cgi/meta-xilinx/tree/README
-- `yocto/meta-xilinx/docs/BOOT.sdcard` (found on `meta-xilinx` repository)
+- https://www.youtube.com/watch?v=XPnmB-THjiY
