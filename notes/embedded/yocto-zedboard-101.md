@@ -121,3 +121,11 @@ tmpfs                   249.2M     40.0K    249.2M   0% /var/volatile
 ## References
 
 - https://www.youtube.com/watch?v=XPnmB-THjiY
+
+
+
+## Other sources (to check later)
+
+https://blog.mbedded.ninja/programming/embedded-linux/zynq/building-linux-for-the-zynq-zc702-eval-kit-using-yocto/
+
+https://dwjbosman.github.io/yocto-linux-on-the-xilinx-zynq-zed-board
