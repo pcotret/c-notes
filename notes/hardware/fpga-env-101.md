@@ -2,7 +2,7 @@
 
 ## Installing Vivado
 
-- Vivado Design Suite - HLx Editions - 2019.2 for the latest version
+- Vivado Design Suite - HLx Editions - 2019.2 for the latest version: https://www.xilinx.com/support/download.html
 - Tutorial available here: : https://www.dropbox.com/s/sgxhb08tcwuj9ko/Download_%26_Install_VIVADO_On_Ubuntu_July_3.pdf?dl=0
 
 ### License
