@@ -12,7 +12,7 @@
 
 ### Pre-configuration
 
-before executing Vivado, a few things to be aware of:
+Before executing Vivado, a few things to be aware of:
 
 - Add this line in your `$HOME/.bashrc` (amongst other things, this script add binaries to `PATH`) :
 
