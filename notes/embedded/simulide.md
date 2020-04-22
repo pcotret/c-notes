@@ -1,10 +1,6 @@
 # Quick start guide for SimulIDE as an Arduino simulator
 
-> The idea behind this tutorial is to show how to install SimulIDE to run codes for an Arduino Uno board.
->
-> Screenshots below were taken from a Windows machine. It will be the same thing for Unix-based systems (tested on Ubuntu).
->
-> Some comments for the Mac port at the end (but it works!)
+> The idea behind this tutorial is to show how to install SimulIDE to run codes for an Arduino Uno board.Screenshots below were taken from a Windows machine. It will be the same thing for Unix-based systems (tested on Ubuntu). Some comments for the Mac port at the end (but it works!)
 
 ## Downloading tools
 
@@ -68,7 +64,7 @@ Now, just click on the red button in the upper left toolbar:
 
 ## Mac port of SimulIDE
 
-Basically, it works! Just a few things to be aware of:
+Just a few things to be aware of:
 
 ![mac](./../../img/simulide-img8.png)
 
