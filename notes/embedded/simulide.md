@@ -23,21 +23,15 @@ Here is the main interface :
 
 ### Schematic settings (red rectangle)
 
-1. New file
-2. Open file
-3. Save
-4. Save as...
-5. Run the simulation
+| 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|
+| New | Open | Save | Save as | Run simulation |
 
 ### Code editor settings (blue rectangle)
 
-1. New file
-2. Open file
-3. Save
-4. Save as...
-5. Find/Replace
-6. Compile
-7. Upload
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|
+| New | Open | Save | Save as | Find/Replace | Compile | Upload |
 
 Open the LED fadding example (`SimulIDE_0.3.12-SR8_Win32/share/simulide/examples/Arduino/ledFadding`)
 
