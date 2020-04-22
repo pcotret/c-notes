@@ -3,6 +3,8 @@
 > The idea behind this tutorial is to show how to install SimulIDE to run codes for an Arduino Uno board.
 >
 > Screenshots below were taken from a Windows machine. It will be the same thing for Unix-based systems (tested on Ubuntu).
+>
+> Some comments for the Mac port at the end (but it works!)
 
 ## Downloading tools
 
@@ -64,3 +66,11 @@ Now, just click on the red button in the upper left toolbar:
 
 > Hint: if you need a serial monitor, right click on the Arduino and select **Open Serial Monitor**.
 
+## Mac port of SimulIDE
+
+Basically, it works! Just a few things to be aware of:
+
+![mac](./../../img/simulide-img8.png)
+
+- Compile the binary in the Arduino editor. Then click on `Sketch => Export compiled binary`.
+- Then, right click on the Arduino and select `Load firmware` and look for the `*.hex` file just compiled close to the Arduino project file.
