@@ -11,17 +11,17 @@
 
 Extract softwares in a directory. You should get something similar to this:
 
-![image-20200422203821497](./../../img/simulide-img1.png)
+![image-20200422203821497](./../../img/simulide-img1.jpg)
 
 ## Example: blinking LEDs on an Arduino Uno
 
 In order to execute SimulIDE, run the executable at: `SimulIDE_0.3.12-SR8_Win32/bin`
 
-![image-20200422204251027](../../img/simulide-img2.png)
+![image-20200422204251027](../../img/simulide-img2.jpg)
 
 Here is the main interface :
 
-![image-20200422205142210](./../../img/simulide-img3.png)
+![image-20200422205142210](./../../img/simulide-img3.jpg)
 
 ### Schematic settings (red rectangle)
 
@@ -48,19 +48,19 @@ Open the LED fadding example (`SimulIDE_0.3.12-SR8_Win32/share/simulide/examples
 
 ### Compiler configuration
 
-![image-20200422210236017](./../../img/simulide-img4.png)
+![image-20200422210236017](./../../img/simulide-img4.jpg)
 
 Right click on the `ledFadding.ino` and click `Set Compiler Path`. Select the directory where you have the Arduino executable (`./simul_ide/arduino-1.8.12` in the screenshot below).
 
-![image-20200422210353987](./../../img/simulide-img5.png)
+![image-20200422210353987](./../../img/simulide-img5.jpg)
 
 Now you should be able to compile and upload your code!
 
-![image-20200422210752398](./../../img/simulide-img6.png)
+![image-20200422210752398](./../../img/simulide-img6.jpg)
 
 Now, just click on the red button in the upper left toolbar:
 
-![image-20200422210913913](./../../img/simulide-img7.png)
+![image-20200422210913913](./../../img/simulide-img7.jpg)
 
 > Hint: if you need a serial monitor, right click on the Arduino and select **Open Serial Monitor**.
 
