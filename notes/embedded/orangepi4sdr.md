@@ -6,7 +6,7 @@ The goal was to get a single-board computer able to execute Gnuradio tools quite
 * An OrangePiMini2 (bought from Aliexpress **[2]**). Main features :
   * Allwinner H3 CPU (quad-core Cortex-A7 @ 1.6GHz)
   * 1GB RAM memory
-* A 5V/2A power supply such as **[3, 4]**. Otherwise, the OrangePi kit comes with an USB cable that works fine (an external computer is required)
+* A 5V/2A power supply such as **[3]**. Otherwise, the OrangePi kit comes with an USB cable that works fine (an external computer is required)
 * A µSD card: class 10 is the best
 * (of course, video and Ethernet cables)
 
