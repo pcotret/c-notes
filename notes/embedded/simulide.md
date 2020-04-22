@@ -58,7 +58,7 @@ Now, just click on the red button in the upper left toolbar:
 
 ## Mac port of SimulIDE
 
-Just a few things to be aware of:
+Could not get the internal code editor working. Just a few things to be aware of:
 
 ![mac](./../../img/simulide-img8.png)
 
