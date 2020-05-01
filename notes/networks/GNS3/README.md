@@ -1,1 +1,0 @@
-- [First topology with GNS3](./first_topology.md)

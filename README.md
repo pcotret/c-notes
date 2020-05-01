@@ -1,6 +1,1 @@
-# tech-notes
-- [Embedded](./notes/embedded)
-- [Hardware](./notes/hardware)
-- [Misc](./notes/misc)
-- [Networks](./notes/networks)
-- [Workshops notes](./notes/workshops)
+Moved all notes to the Github page: https://pcotret.github.io/categories/
